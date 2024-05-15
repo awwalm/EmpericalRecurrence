@@ -68,6 +68,6 @@ def testUperBoundT():
 
 
 if __name__ == "__main__":
-    testSmallerTn()
-    # testTn()
+    testTn()
+    # testSmallerTn()
     # testUperBoundT()
