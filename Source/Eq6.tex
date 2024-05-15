@@ -1,0 +1,10 @@
+\begin{align*}
+& \text{From } \ [2]: T(n) = 2T(n/2) + \log(n) \\
+& \text{Solve } \ T(n/2): 2T((n/2) \div 2) + \log(n/2) = 2T(n/4) + \log(n/2) \\
+& \text{Update } \ [2]: T(n) = 4T(n/4) + 2\log(n/2) + \log(n) \\
+& \text{Solve } \ T(n/4) = 2T((n/4) \div 2) + \log(n/4) = 2T(n/8) + \log(n/4) \\
+& \text{Update } \ [2]: T(n) = 8T(n/8) + 4\log(n/4) + 2\log(n) + \log(n) \\
+\\
+& \text{Following this trend:} \ T(n) = 16(n/8) + 8\log(n/8) + 4\log(n/4) + 2\log(n/2) + \log(n) \\
+& \text{We then obtain a generalized form of } \ [2]: T(n) = 2^kT(n/2^k) + 2^{k-1}\log(n/2^{k-1}) + 2^{k-2}\log(n/2^{k-2}) + \ldots + \log(n)
+\end{align*}
