@@ -1,7 +1,10 @@
 \begin{align*}
-& [k]: \ 2^k T(n/2^k) \\
+& \text{We denote the generalized term,} \ [k] \ \text{as}\ldots \\
+& [k]: \ 2^k T(n/2^k) + \sum_{i=0}^{k-1} 2^i \log_2 (n/2^i) \\
 & \text{At some point: } \ T(n/2^k) = 1, \ \text{i.e.} \ n/2^k = 1. \\
 & n/2^k = 1 \equiv n/2^{\log_2 n} \ \therefore k = \log_2 n \\
-& \text{Substitute } \ \log_2 n \ \text{for } \ k \ \text{in} \ [k]: \ {2^{\log_2 n}} \ \times (1) \\
-& 2^{\log_2 n} \Leftrightarrow \log_2 2^n = n \times \log_2 2 = n \times 1 \\
-& T(n) \ \text{is } \ \Theta(n)
+& \text{Substitute } \ \log_2 n \ \text{for } \ k \ \text{in} \ [k]: \
+{2^{\log_2 n}}(1) + \sum_{i=0}^{(\log_2 n)-1} 2^i \log_2 (n/2^i) \\
+& \text{Solving the left operand}: 2^{\log_2 n} \Leftrightarrow \log_2 2^n = n \times \log_2 2 = n \times 1 = n \\
+& \text{Updating } \ [k]: n + \sum_{i=0}^{(\log_2 n)-1} 2^i \log_2 (n/2^i) \\
+\end{align*}
