@@ -18,8 +18,10 @@ def T(n):
 def testTn():
     """1 million data points; range 1000 to 1 billion; interval 1000"""
     N = [i * i for i in range(1000, int(1e9)+1, 1000)]
+    # N = [i for i in range(10, 1001, 50)]
     Tn = []
     dif = []
+    twoN = [i * 2 for i in N]
     for n in N:
         tn = T(n)
         Tn.append(tn[0])
@@ -29,8 +31,9 @@ def testTn():
     plt.plot(N, Tn, label=" ω(n)")
     plt.plot(N, dif, label="Abs(ω(n) - n)")
     plt.plot(N, N, label="n")
+    plt.plot(N, twoN, label="2n")
     plt.xlabel("n-values")
-    plt.title("Empirical Bounds of  ω(n)")
+    plt.title("Stronger Bounds of  ω(n)")
     plt.legend()
     plt.show()
 
