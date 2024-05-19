@@ -21,20 +21,32 @@ def testTn():
     # N = [i for i in range(10, 1001, 50)]
     Tn = []
     dif = []
-    twoN = [i * 2 for i in N]
     for n in N:
         tn = T(n)
         Tn.append(tn[0])
         dif.append(tn[1])
-    print(f"\nAverage n-size: {sum(N)/len(N):.3e}\nAverage Difference: {sum(dif)/len(dif):.3e}")
 
-    plt.plot(N, Tn, label=" ω(n)")
-    plt.plot(N, dif, label="Abs(ω(n) - n)")
-    plt.plot(N, N, label="n")
-    plt.plot(N, twoN, label="2n")
-    plt.xlabel("n-values")
-    plt.title("Stronger Bounds of  ω(n)")
+    avg_dif = sum(dif)/len(dif)
+    avg_n = sum(N)/len(N)
+    avg_tn = sum(Tn)/len(Tn)
+    print(f"\nAverage n-size: {avg_n:.3e}\nAverage Difference: {avg_dif:.3e}")
+
+    plt.rcParams.update({"font.size": 14})
+
+    plt.plot(N, Tn, label=r"$\omega(n)$")
+    plt.plot(N, dif, label=r"$Abs(\omega(n) - n)$")
+    plt.plot(N, N, label=r"$n$")
+    plt.xlabel(r"$n$-values")
+    plt.title(r"Empirical Bounds of $\omega(n)$")
     plt.legend()
+
+    stats = (f"Averages:\n"
+             f"$\omega(n)$ = {avg_tn:.3e}\n"
+             f"$Abs(\omega(n) - n)$ = {avg_dif:.3e}\n"
+             f"$n$-size = {avg_n:.3e}")
+    bbox = dict(boxstyle="round", fc="blanchedalmond", ec="orange", alpha=0.5)
+    plt.text(N[int(0.35*len(N))], 0.9075*max(Tn), stats, bbox=bbox, horizontalalignment="left")
+
     plt.show()
 
     return N, Tn
