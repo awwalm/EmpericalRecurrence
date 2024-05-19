@@ -31,7 +31,7 @@ def testTn():
     avg_tn = sum(Tn)/len(Tn)
     print(f"\nAverage n-size: {avg_n:.3e}\nAverage Difference: {avg_dif:.3e}")
 
-    plt.rcParams.update({"font.size": 14})
+    plt.rcParams.update({"font.size": 24})
 
     plt.plot(N, Tn, label=r"$\omega(n)$")
     plt.plot(N, dif, label=r"$Abs(\omega(n) - n)$")
@@ -45,7 +45,7 @@ def testTn():
              f"$Abs(\omega(n) - n)$ = {avg_dif:.3e}\n"
              f"$n$-size = {avg_n:.3e}")
     bbox = dict(boxstyle="round", fc="blanchedalmond", ec="orange", alpha=0.5)
-    plt.text(N[int(0.35*len(N))], 0.9075*max(Tn), stats, bbox=bbox, horizontalalignment="left")
+    plt.text(N[int(0.478*len(N))], 0.825*max(Tn), stats, bbox=bbox, horizontalalignment="left")
 
     plt.show()
 
